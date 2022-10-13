@@ -66,8 +66,14 @@ public class PressPerSecondTestFragment extends Fragment implements View.OnClick
                 double dps = 0.00;
                 dps = amountPressed / ((System.currentTimeMillis() - timeStarted)/1000);
 
-
                 txtViewPPS.setText(String.valueOf(dps).substring(0,3)+ "pps");
+                
+                if(System.currentTimeMillis()-lastClicked>5000){
+                    synchronized (this){
+                        timeStarted=System.currentTimeMillis();
+                        amountPressed=0;
+                    }
+                }
             }
         }, 1000, 500);
 
@@ -90,6 +96,8 @@ public class PressPerSecondTestFragment extends Fragment implements View.OnClick
 
         return view;
     }
+
+    double lastClicked;
 
     double timeStarted;
 
@@ -116,6 +124,7 @@ public class PressPerSecondTestFragment extends Fragment implements View.OnClick
     private void calculatePress() {
         synchronized (this) {
             amountPressed++;
+            lastClicked=System.currentTimeMillis();
         }
     }
 

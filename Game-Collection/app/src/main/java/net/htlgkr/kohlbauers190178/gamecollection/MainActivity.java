@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void startPPSGame() {
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.constraintLayout, PressPerSecondTestFragment.newInstance("", ""), "ReactionTesterFragment")
+                .replace(R.id.constraintLayout, PressPerSecondTestFragment.newInstance("", ""), "PressPerSecondTestFragment")
                 .addToBackStack(null)
                 .commit();
     }
