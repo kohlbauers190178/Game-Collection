@@ -16,13 +16,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btnStart = findViewById(R.id.btnStartTicTacToeGame);
-        btnStart.setOnClickListener(this);
-        findViewById(R.id.btnStartPPSTestGame).setOnClickListener(this);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.constraintLayout, MainFragment.newInstance("",""), "MainFragment").addToBackStack(null).commit();
     }
 
     @Override
     public void onClick(View view) {
+        /*
         Button btnClicked = findViewById(view.getId());
 
 
@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         findViewById(R.id.btnStartTicTacToeGame).setVisibility(View.GONE);
         findViewById(R.id.btnStartPPSTestGame).setVisibility(View.GONE);
+        */
+
     }
 
     private void startPPSGame() {

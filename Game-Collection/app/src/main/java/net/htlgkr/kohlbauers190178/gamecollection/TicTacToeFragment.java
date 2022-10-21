@@ -66,7 +66,6 @@ public class TicTacToeFragment extends Fragment implements View.OnClickListener 
 
     }
 
-    FragmentTicTacToeBinding binding;
 
     Button btnTL;
     Button btnTM;
@@ -155,6 +154,7 @@ public class TicTacToeFragment extends Fragment implements View.OnClickListener 
 
                     if (ticTacToeGame.checkIfEnd()) {
                         String causeOfEnd = ticTacToeGame.getCauseOfEnd();
+                        //txtViewEndInfo = getActivity().findViewById(R.id.txtVwEndInfo);
                         txtViewEndInfo.setText(causeOfEnd);
                         endGame();
                     }
